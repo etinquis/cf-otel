@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  worker:
+    build:
+      context: .
+    entrypoint: npx wrangler dev --local --port 80 --ip 0.0.0.0
+    ports:
+      - 80
+  tracing:
+    image: mockserver/mockserver
+    environment:
+      - MOCKSERVER_SERVER_PORT=80
+      - MOCKSERVER_INITIALIZATION_JSON_PATH=/mock/mock.tracing.json
+    volumes:
+      - ./mock:/mock:ro

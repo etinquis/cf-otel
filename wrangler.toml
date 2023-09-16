@@ -1,0 +1,8 @@
+name = "cf-otel"
+main = "src/index.ts"
+compatibility_date = "2023-09-16"
+compatibility_flags = [ "nodejs_compat" ]
+
+[vars]
+TRACING_ENDPOINT = "http://tracing:80/v1/traces"
+TEST_VAR = "Hello World!"
